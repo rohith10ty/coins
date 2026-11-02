@@ -134,22 +134,22 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
 
           </div>
 
-          {/* Right Column: Interactive Trading Card Visual */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Interactive Trading Card Visual (Centered & Compact) */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative">
             
             {/* Outer Decorative Glow Border */}
-            <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-orange-600/40 via-amber-500/20 to-transparent shadow-2xl shadow-orange-950/40">
+            <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-orange-600/40 via-amber-500/20 to-transparent shadow-2xl shadow-orange-950/40 w-full max-w-[420px]">
               
-              <div className="relative rounded-2xl bg-[#0D121D]/90 backdrop-blur-xl border border-white/[0.06] p-6 overflow-hidden">
+              <div className="relative rounded-2xl bg-[#0D121D]/90 backdrop-blur-xl border border-white/[0.06] p-4 sm:p-5 overflow-hidden">
                 
                 {/* Header: Asset Switcher tabs */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/[0.07]">
+                <div className="flex items-center justify-between pb-3 border-b border-white/[0.07]">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">Live Spot Terminal</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">Live Spot Terminal</span>
                   </div>
 
-                  <div className="flex bg-white/[0.04] p-1 rounded-lg border border-white/[0.06]">
+                  <div className="flex bg-white/[0.04] p-0.5 rounded-lg border border-white/[0.06]">
                     {Object.keys(heroCoins).map((key) => (
                       <button
                         key={key}
@@ -167,76 +167,76 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
                 </div>
 
                 {/* Main Price & Status */}
-                <div className="mt-5 flex items-start justify-between">
+                <div className="mt-3.5 flex items-start justify-between">
                   <div>
-                    <div className="text-xs font-medium text-slate-400">{currentCoin.name} ({currentCoin.symbol})</div>
-                    <div className="text-3xl sm:text-4xl font-black text-white mt-1 tracking-tight">
+                    <div className="text-[11px] font-medium text-slate-400">{currentCoin.name} ({currentCoin.symbol})</div>
+                    <div className="text-2xl sm:text-3xl font-black text-white mt-0.5 tracking-tight">
                       {currentCoin.price}
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-bold text-sm">
-                    <ArrowUpRight className="w-4 h-4" />
+                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-bold text-xs">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                     {currentCoin.change}
                   </div>
                 </div>
 
-                {/* Interactive Chart Area */}
-                <div className="mt-6 pt-4 border-t border-white/[0.04]">
-                  <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
+                {/* Interactive Chart Area (Sleek & Compact) */}
+                <div className="mt-3.5 pt-3 border-t border-white/[0.04]">
+                  <div className="flex items-center justify-between text-[11px] text-slate-400 mb-1.5">
                     <span>Performance Trend</span>
-                    <span className="text-slate-500">24H High: <strong className="text-slate-300">{currentCoin.high}</strong></span>
+                    <span className="text-slate-500">24H High: <strong className="text-slate-300 font-mono">{currentCoin.high}</strong></span>
                   </div>
 
-                  <div className="h-28 w-full flex items-center justify-center">
+                  <div className="h-20 w-full flex items-center justify-center">
                     <Sparkline
                       data={currentCoin.sparkline}
-                      width={380}
-                      height={90}
+                      width={340}
+                      height={65}
                       isPositive={currentCoin.isPositive}
-                      strokeWidth={2.5}
+                      strokeWidth={2}
                       showGradient={true}
                     />
                   </div>
                 </div>
 
                 {/* Mock Order Book Visual snippet */}
-                <div className="mt-4 pt-3 border-t border-white/[0.06]">
-                  <div className="text-[11px] font-medium text-slate-400 mb-2 flex justify-between">
+                <div className="mt-3 pt-2.5 border-t border-white/[0.06]">
+                  <div className="text-[10px] font-medium text-slate-400 mb-1.5 flex justify-between">
                     <span>Order Depth (Real-Time)</span>
                     <span className="text-cyan-400 font-mono">Spread: $0.01</span>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <div className="flex items-center justify-between text-xs">
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between text-[11px]">
                       <span className="text-emerald-400 font-mono font-medium">Bids 68,419.80</span>
-                      <div className="w-24 h-2 bg-emerald-500/20 rounded-full overflow-hidden">
+                      <div className="w-20 sm:w-24 h-1.5 bg-emerald-500/20 rounded-full overflow-hidden">
                         <div className="w-[82%] h-full bg-emerald-500 rounded-full"></div>
                       </div>
-                      <span className="text-slate-400 font-mono text-[11px]">1.42 BTC</span>
+                      <span className="text-slate-400 font-mono text-[10px]">1.42 BTC</span>
                     </div>
 
-                    <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center justify-between text-[11px]">
                       <span className="text-rose-400 font-mono font-medium">Asks 68,421.20</span>
-                      <div className="w-24 h-2 bg-rose-500/20 rounded-full overflow-hidden">
+                      <div className="w-20 sm:w-24 h-1.5 bg-rose-500/20 rounded-full overflow-hidden">
                         <div className="w-[64%] h-full bg-rose-500 rounded-full"></div>
                       </div>
-                      <span className="text-slate-400 font-mono text-[11px]">0.98 BTC</span>
+                      <span className="text-slate-400 font-mono text-[10px]">0.98 BTC</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Quick Action in Card */}
-                <div className="mt-5 grid grid-cols-2 gap-3">
+                <div className="mt-3.5 grid grid-cols-2 gap-2.5">
                   <button
                     onClick={() => onOpenTrading(activeTab, 'BUY')}
-                    className="py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-colors shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-1.5"
+                    className="py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition-colors shadow-md shadow-emerald-500/20 flex items-center justify-center gap-1"
                   >
                     Quick Buy
                   </button>
                   <button
                     onClick={() => onOpenTrading(activeTab, 'SELL')}
-                    className="py-2.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 font-bold text-sm transition-colors flex items-center justify-center gap-1.5"
+                    className="py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 font-bold text-xs transition-colors flex items-center justify-center gap-1"
                   >
                     Quick Sell
                   </button>
@@ -245,14 +245,14 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
               </div>
             </div>
 
-            {/* Floating Trust Badge */}
-            <div className="hidden sm:flex items-center gap-3 absolute -bottom-5 -left-6 bg-[#0E1524]/95 backdrop-blur-md border border-white/[0.1] px-4 py-2.5 rounded-xl shadow-2xl animate-float">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-                <ShieldCheck className="w-5 h-5" />
+            {/* Floating Trust Badge (Tucked neatly) */}
+            <div className="hidden sm:flex items-center gap-2.5 absolute -bottom-3 -left-3 bg-[#0E1524]/95 backdrop-blur-md border border-white/[0.1] px-3 py-1.5 rounded-xl shadow-xl animate-float">
+              <div className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                <ShieldCheck className="w-3.5 h-3.5" />
               </div>
               <div>
-                <div className="text-xs font-bold text-white">SOC-2 Type II Certified</div>
-                <div className="text-[11px] text-slate-400">100% Reserve Custody</div>
+                <div className="text-[11px] font-bold text-white leading-tight">SOC-2 Type II Certified</div>
+                <div className="text-[10px] text-slate-400">100% Reserve Custody</div>
               </div>
             </div>
 
