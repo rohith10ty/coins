@@ -1,0 +1,310 @@
+import React, { useState } from 'react';
+import { 
+  ArrowUpRight, 
+  ArrowDownRight, 
+  TrendingUp, 
+  ShieldCheck, 
+  Zap, 
+  ChevronRight, 
+  Play, 
+  Sparkles,
+  BarChart3,
+  DollarSign
+} from 'lucide-react';
+import Sparkline from './Sparkline';
+
+export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
+  const [activeTab, setActiveTab] = useState('BTC');
+
+  const heroCoins = {
+    BTC: {
+      symbol: 'BTC/USD',
+      name: 'Bitcoin',
+      price: '$68,420.50',
+      change: '+3.45%',
+      isPositive: true,
+      high: '$68,900.00',
+      low: '$65,980.00',
+      sparkline: [66000, 66400, 66150, 67200, 67050, 67900, 68420.50]
+    },
+    NVDA: {
+      symbol: 'NVDA',
+      name: 'NVIDIA Corp.',
+      price: '$141.54',
+      change: '+4.85%',
+      isPositive: true,
+      high: '$142.20',
+      low: '$135.10',
+      sparkline: [134, 136, 135.5, 138, 137.8, 140.2, 141.54]
+    },
+    ETH: {
+      symbol: 'ETH/USD',
+      name: 'Ethereum',
+      price: '$2,640.10',
+      change: '+2.15%',
+      isPositive: true,
+      high: '$2,680.00',
+      low: '$2,560.00',
+      sparkline: [2570, 2590, 2580, 2620, 2610, 2635, 2640.10]
+    }
+  };
+
+  const currentCoin = heroCoins[activeTab];
+
+  const tickerItems = [
+    { s: 'BTC', p: '$68,420.50', c: '+3.45%', up: true },
+    { s: 'NVDA', p: '$141.54', c: '+4.85%', up: true },
+    { s: 'ETH', p: '$2,640.10', c: '+2.15%', up: true },
+    { s: 'AAPL', p: '$232.15', c: '+1.42%', up: true },
+    { s: 'TSLA', p: '$218.40', c: '-2.35%', up: false },
+    { s: 'SOL', p: '$178.60', c: '+6.82%', up: true },
+    { s: 'SPY', p: '$582.40', c: '+0.82%', up: true },
+    { s: 'PLTR', p: '$43.85', c: '+7.21%', up: true },
+    { s: 'MSFT', p: '$428.15', c: '+0.95%', up: true },
+  ];
+
+  return (
+    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden crypto-grid-pattern">
+      {/* Background ambient lighting effects */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 right-1/4 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Column: Headline and Call to Actions */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            
+            {/* Top Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md mb-6 hover:border-cyan-400/40 transition-colors">
+              <span className="flex h-2 w-2 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              </span>
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+                Institutional v4.2 Release
+              </span>
+              <span className="text-slate-600">•</span>
+              <span className="text-xs text-cyan-300 font-medium flex items-center gap-0.5">
+                0% Commission Trading <ChevronRight className="w-3.5 h-3.5" />
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+              Invest with Confidence.{' '}
+              <span className="block mt-1 bg-gradient-to-r from-indigo-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
+                Trade with Ultra Precision.
+              </span>
+            </h1>
+
+            {/* Description */}
+            <p className="mt-6 text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed">
+              Experience the pinnacle of fintech on <strong className="text-slate-200">Coins</strong>. Access US equities, global crypto, ETFs, and index derivatives with sub-millisecond execution, institutional liquidity, and intelligent portfolio tools.
+            </p>
+
+            {/* Call To Actions */}
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+              <a
+                href="#trading"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#trading')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white font-bold text-base shadow-xl shadow-indigo-500/25 hover:shadow-cyan-400/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Start Trading Now
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+
+              <a
+                href="#markets"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#markets')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.1] text-slate-200 hover:text-white font-semibold text-base transition-all duration-200"
+              >
+                <BarChart3 className="w-4 h-4 text-cyan-400" />
+                Explore Markets
+              </a>
+            </div>
+
+            {/* Key Trust Metrics */}
+            <div className="mt-12 pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-6 sm:gap-10 w-full max-w-lg">
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">$4.8B+</div>
+                <div className="text-xs sm:text-sm text-slate-400 mt-0.5">24h Global Volume</div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">&lt;12ms</div>
+                <div className="text-xs sm:text-sm text-slate-400 mt-0.5">Engine Latency</div>
+              </div>
+              <div>
+                <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400 tracking-tight">0.0%</div>
+                <div className="text-xs sm:text-sm text-slate-400 mt-0.5">Zero Commission</div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Column: Interactive Trading Card Visual */}
+          <div className="lg:col-span-5 relative">
+            
+            {/* Outer Decorative Glow Border */}
+            <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-indigo-500/40 via-cyan-500/20 to-transparent shadow-2xl shadow-indigo-950/60">
+              
+              <div className="relative rounded-2xl bg-[#0D121D]/90 backdrop-blur-xl border border-white/[0.06] p-6 overflow-hidden">
+                
+                {/* Header: Asset Switcher tabs */}
+                <div className="flex items-center justify-between pb-4 border-b border-white/[0.07]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">Live Spot Terminal</span>
+                  </div>
+
+                  <div className="flex bg-white/[0.04] p-1 rounded-lg border border-white/[0.06]">
+                    {Object.keys(heroCoins).map((key) => (
+                      <button
+                        key={key}
+                        onClick={() => setActiveTab(key)}
+                        className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
+                          activeTab === key 
+                            ? 'bg-indigo-600 text-white shadow-sm' 
+                            : 'text-slate-400 hover:text-white'
+                        }`}
+                      >
+                        {key}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Main Price & Status */}
+                <div className="mt-5 flex items-start justify-between">
+                  <div>
+                    <div className="text-xs font-medium text-slate-400">{currentCoin.name} ({currentCoin.symbol})</div>
+                    <div className="text-3xl sm:text-4xl font-black text-white mt-1 tracking-tight">
+                      {currentCoin.price}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-bold text-sm">
+                    <ArrowUpRight className="w-4 h-4" />
+                    {currentCoin.change}
+                  </div>
+                </div>
+
+                {/* Interactive Chart Area */}
+                <div className="mt-6 pt-4 border-t border-white/[0.04]">
+                  <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
+                    <span>Performance Trend</span>
+                    <span className="text-slate-500">24H High: <strong className="text-slate-300">{currentCoin.high}</strong></span>
+                  </div>
+
+                  <div className="h-28 w-full flex items-center justify-center">
+                    <Sparkline
+                      data={currentCoin.sparkline}
+                      width={380}
+                      height={90}
+                      isPositive={currentCoin.isPositive}
+                      strokeWidth={2.5}
+                      showGradient={true}
+                    />
+                  </div>
+                </div>
+
+                {/* Mock Order Book Visual snippet */}
+                <div className="mt-4 pt-3 border-t border-white/[0.06]">
+                  <div className="text-[11px] font-medium text-slate-400 mb-2 flex justify-between">
+                    <span>Order Depth (Real-Time)</span>
+                    <span className="text-cyan-400 font-mono">Spread: $0.01</span>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-emerald-400 font-mono font-medium">Bids 68,419.80</span>
+                      <div className="w-24 h-2 bg-emerald-500/20 rounded-full overflow-hidden">
+                        <div className="w-[82%] h-full bg-emerald-500 rounded-full"></div>
+                      </div>
+                      <span className="text-slate-400 font-mono text-[11px]">1.42 BTC</span>
+                    </div>
+
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-rose-400 font-mono font-medium">Asks 68,421.20</span>
+                      <div className="w-24 h-2 bg-rose-500/20 rounded-full overflow-hidden">
+                        <div className="w-[64%] h-full bg-rose-500 rounded-full"></div>
+                      </div>
+                      <span className="text-slate-400 font-mono text-[11px]">0.98 BTC</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Action in Card */}
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => onOpenTrading(activeTab, 'BUY')}
+                    className="py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-colors shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-1.5"
+                  >
+                    Quick Buy
+                  </button>
+                  <button
+                    onClick={() => onOpenTrading(activeTab, 'SELL')}
+                    className="py-2.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 font-bold text-sm transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    Quick Sell
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Floating Trust Badge */}
+            <div className="hidden sm:flex items-center gap-3 absolute -bottom-5 -left-6 bg-[#0E1524]/95 backdrop-blur-md border border-white/[0.1] px-4 py-2.5 rounded-xl shadow-2xl animate-float">
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-white">SOC-2 Type II Certified</div>
+                <div className="text-[11px] text-slate-400">100% Reserve Custody</div>
+              </div>
+            </div>
+
+            {/* Floating Speed Badge */}
+            <div className="hidden sm:flex items-center gap-3 absolute -top-4 -right-4 bg-[#0E1524]/95 backdrop-blur-md border border-white/[0.1] px-4 py-2 rounded-xl shadow-2xl">
+              <Zap className="w-4 h-4 text-cyan-400 fill-cyan-400" />
+              <span className="text-xs font-semibold text-slate-200">&lt; 12ms High-Frequency Routing</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* Infinite Scrolling Real-Time Market Ticker Ribbon */}
+      <div className="mt-14 w-full border-y border-white/[0.08] bg-[#070A0F]/80 backdrop-blur-md py-3 overflow-hidden">
+        <div className="flex gap-8 whitespace-nowrap animate-ticker">
+          {[...tickerItems, ...tickerItems, ...tickerItems].map((item, index) => (
+            <div 
+              key={index} 
+              className="inline-flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => onSelectStock && onSelectStock(item.s)}
+            >
+              <span className="text-xs font-bold text-slate-200 tracking-wider">{item.s}</span>
+              <span className="text-xs font-mono text-slate-400">{item.p}</span>
+              <span className={`text-[11px] font-bold flex items-center ${
+                item.up ? 'text-emerald-400' : 'text-rose-400'
+              }`}>
+                {item.up ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
+                {item.c}
+              </span>
+              <span className="text-slate-700 ml-4">•</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </section>
+  );
+}
