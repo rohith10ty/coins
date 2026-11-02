@@ -134,8 +134,8 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
 
           </div>
 
-          {/* Right Column: Interactive Trading Card Visual (Centered & Compact) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative">
+          {/* Right Column: Interactive Trading Card Visual (Shifted slightly left) */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-center items-center relative lg:-translate-x-6 xl:-translate-x-10">
             
             {/* Outer Decorative Glow Border */}
             <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-orange-600/40 via-amber-500/20 to-transparent shadow-2xl shadow-orange-950/40 w-full max-w-[420px]">
