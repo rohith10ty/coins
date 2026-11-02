@@ -17,22 +17,22 @@ export default function WhyChooseUs({ onOpenAuth }) {
   const iconMap = {
     ShieldCheck: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
     Zap: <Zap className="w-6 h-6 text-cyan-400" />,
-    TrendingUp: <TrendingUp className="w-6 h-6 text-indigo-400" />,
+    TrendingUp: <TrendingUp className="w-6 h-6 text-orange-400" />,
     CircleDollarSign: <CircleDollarSign className="w-6 h-6 text-amber-400" />,
-    Layers: <Layers className="w-6 h-6 text-purple-400" />,
+    Layers: <Layers className="w-6 h-6 text-amber-500" />,
     Headphones: <Headphones className="w-6 h-6 text-rose-400" />
   };
 
   return (
     <section id="why-us" className="py-24 bg-[#080B11] relative overflow-hidden">
       {/* Subtle radial ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-wider mb-4">
             <Award className="w-4 h-4" />
             Institutional Architecture
           </div>
@@ -49,14 +49,14 @@ export default function WhyChooseUs({ onOpenAuth }) {
           {WHY_CHOOSE_US.map((item, idx) => (
             <div
               key={idx}
-              className="group relative rounded-2xl bg-[#0F1422]/70 hover:bg-[#141B2D]/90 border border-white/[0.06] hover:border-indigo-500/40 p-7 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-950/40 flex flex-col justify-between"
+              className="group relative rounded-2xl bg-[#0F1422]/70 hover:bg-[#141B2D]/90 border border-white/[0.06] hover:border-orange-500/40 p-7 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-950/40 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-indigo-500/40 transition-all duration-300">
-                  {iconMap[item.icon] || <ShieldCheck className="w-6 h-6 text-indigo-400" />}
+                <div className="w-12 h-12 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-orange-500/40 transition-all duration-300">
+                  {iconMap[item.icon] || <ShieldCheck className="w-6 h-6 text-orange-400" />}
                 </div>
 
-                <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">
+                <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
                   {item.title}
                 </h3>
 
@@ -74,7 +74,7 @@ export default function WhyChooseUs({ onOpenAuth }) {
         </div>
 
         {/* Bottom Banner Call to Action */}
-        <div className="mt-16 rounded-3xl bg-gradient-to-r from-indigo-900/40 via-purple-900/30 to-cyan-900/40 border border-indigo-500/20 p-8 sm:p-12 relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="mt-16 rounded-3xl bg-gradient-to-r from-orange-950/40 via-amber-950/30 to-slate-900/40 border border-orange-500/20 p-8 sm:p-12 relative overflow-hidden text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="relative z-10">
             <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
               Ready to trade on next-generation rails?
@@ -87,7 +87,7 @@ export default function WhyChooseUs({ onOpenAuth }) {
           <div className="relative z-10 shrink-0">
             <button
               onClick={() => onOpenAuth('signup')}
-              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-cyan-500/25 transition-all duration-300 hover:scale-105 active:scale-95"
+              className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 hover:from-orange-500 hover:to-amber-400 text-white font-bold text-sm shadow-xl shadow-orange-600/25 transition-all duration-300 hover:scale-105 active:scale-95"
             >
               Create Free Account
             </button>

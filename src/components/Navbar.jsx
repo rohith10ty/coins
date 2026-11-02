@@ -59,17 +59,17 @@ export default function Navbar({ onOpenAuth, activeSection, onNavigate }) {
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             className="flex items-center gap-3 group cursor-pointer"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 p-[1.5px] shadow-lg shadow-indigo-500/20 group-hover:shadow-cyan-400/30 transition-all duration-300">
+            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 via-orange-500 to-amber-500 p-[1.5px] shadow-lg shadow-orange-600/25 group-hover:shadow-orange-500/40 transition-all duration-300">
               <div className="w-full h-full bg-[#080B11] rounded-[10px] flex items-center justify-center">
-                <CoinsIcon className="w-5 h-5 text-indigo-400 group-hover:text-cyan-300 transition-colors duration-300 transform group-hover:rotate-12" />
+                <CoinsIcon className="w-5 h-5 text-orange-400 group-hover:text-amber-300 transition-colors duration-300 transform group-hover:rotate-12" />
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-indigo-200 bg-clip-text text-transparent">
-                Coins<span className="text-cyan-400">.</span>
+              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-amber-200 bg-clip-text text-transparent">
+                Coins<span className="text-orange-500">.</span>
               </span>
               <span className="text-[10px] uppercase tracking-widest text-slate-400 -mt-1 font-semibold">
-                Exchange & Terminal
+                Exchange &amp; Terminal
               </span>
             </div>
           </a>
@@ -93,7 +93,7 @@ export default function Navbar({ onOpenAuth, activeSection, onNavigate }) {
             {/* Live Status indicator */}
             <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-medium text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              NYSE & Crypto Live
+              NYSE &amp; Crypto Live
             </div>
 
             <button
@@ -105,7 +105,7 @@ export default function Navbar({ onOpenAuth, activeSection, onNavigate }) {
 
             <button
               onClick={() => onOpenAuth('signup')}
-              className="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 text-white text-sm font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-cyan-400/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              className="relative group overflow-hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 text-white text-sm font-semibold shadow-lg shadow-orange-600/25 hover:shadow-orange-500/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 Open Account
@@ -118,7 +118,7 @@ export default function Navbar({ onOpenAuth, activeSection, onNavigate }) {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => onOpenAuth('signup')}
-              className="px-3 py-1.5 rounded-lg bg-indigo-600 text-white text-xs font-semibold"
+              className="px-3 py-1.5 rounded-lg bg-orange-600 text-white text-xs font-semibold shadow-md shadow-orange-600/30"
             >
               Join
             </button>
@@ -152,7 +152,7 @@ export default function Navbar({ onOpenAuth, activeSection, onNavigate }) {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="py-2.5 text-base font-medium text-slate-200 hover:text-cyan-400 border-b border-white/[0.04] transition-colors"
+                className="py-2.5 text-base font-medium text-slate-200 hover:text-orange-400 border-b border-white/[0.04] transition-colors"
               >
                 {item.name}
               </a>
@@ -167,7 +167,7 @@ export default function Navbar({ onOpenAuth, activeSection, onNavigate }) {
               </button>
               <button
                 onClick={() => { setIsMobileMenuOpen(false); onOpenAuth('signup'); }}
-                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25"
+                className="w-full py-2.5 rounded-xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 text-sm font-semibold text-white shadow-lg shadow-orange-600/25"
               >
                 Get Started Free
               </button>

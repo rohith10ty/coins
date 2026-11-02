@@ -28,7 +28,7 @@ export default function PortfolioDashboard({
 
   // Asset allocation percentages
   const allocations = [
-    { type: 'Equities & Tech', percent: 48, color: 'bg-indigo-500', amount: '$64,517.44' },
+    { type: 'Equities & Tech', percent: 48, color: 'bg-orange-500', amount: '$64,517.44' },
     { type: 'Digital Assets (Crypto)', percent: 32, color: 'bg-cyan-400', amount: '$43,011.63' },
     { type: 'ETFs & Index Funds', percent: 15, color: 'bg-emerald-500', amount: '$20,161.70' },
     { type: 'USD Cash Reserves', percent: 5, color: 'bg-amber-400', amount: '$6,720.57' }
@@ -85,10 +85,10 @@ export default function PortfolioDashboard({
           
           {/* Card 1: Total Portfolio Value */}
           <div className="rounded-2xl bg-gradient-to-br from-[#121827] to-[#0D121D] border border-white/[0.08] p-6 shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-600/10 rounded-full blur-2xl pointer-events-none"></div>
             <div className="flex items-center justify-between text-slate-400 text-xs font-semibold uppercase tracking-wider">
               <span>Total Portfolio Value</span>
-              <Wallet className="w-4 h-4 text-indigo-400" />
+              <Wallet className="w-4 h-4 text-orange-400" />
             </div>
             <div className="mt-3 text-3xl sm:text-4xl font-black text-white font-mono tracking-tight">
               ${portfolio.totalValue.toLocaleString(undefined, { minimumFractionDigits: 2 })}
@@ -165,7 +165,7 @@ export default function PortfolioDashboard({
                     onClick={() => { setActiveTimeframe(tf); setHoveredPoint(null); }}
                     className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
                       activeTimeframe === tf
-                        ? 'bg-indigo-600 text-white shadow-md'
+                        ? 'bg-orange-600 text-white shadow-md shadow-orange-600/30'
                         : 'text-slate-400 hover:text-white hover:bg-white/[0.04]'
                     }`}
                   >
@@ -183,8 +183,8 @@ export default function PortfolioDashboard({
               >
                 <defs>
                   <linearGradient id="portfolioGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#6366F1" stopOpacity="0.35" />
-                    <stop offset="100%" stopColor="#6366F1" stopOpacity="0.0" />
+                    <stop offset="0%" stopColor="#ea580c" stopOpacity="0.35" />
+                    <stop offset="100%" stopColor="#ea580c" stopOpacity="0.0" />
                   </linearGradient>
                 </defs>
 
@@ -200,7 +200,7 @@ export default function PortfolioDashboard({
                 <path
                   d={pathD}
                   fill="none"
-                  stroke="#6366F1"
+                  stroke="#ea580c"
                   strokeWidth="3"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -307,7 +307,7 @@ export default function PortfolioDashboard({
               <h3 className="text-lg font-bold text-white">Current Holdings</h3>
               <p className="text-xs text-slate-400">All live open positions in your Coins multi-asset vault</p>
             </div>
-            <span className="text-xs font-semibold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+            <span className="text-xs font-semibold text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">
               {holdings.length} Assets Active
             </span>
           </div>
@@ -358,7 +358,7 @@ export default function PortfolioDashboard({
                     <td className="py-3.5 px-4 text-right">
                       <button
                         onClick={() => onQuickTrade(h.symbol)}
-                        className="px-2.5 py-1 rounded bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-[11px] font-sans font-semibold transition-colors"
+                        className="px-2.5 py-1 rounded bg-orange-600/30 hover:bg-orange-600 text-orange-300 hover:text-white text-[11px] font-sans font-semibold transition-colors"
                       >
                         Trade
                       </button>

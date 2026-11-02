@@ -39,7 +39,7 @@ export default function MarketOverview({ indices, onSelectIndex }) {
                 onClick={() => setFilter(f)}
                 className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
                   filter === f
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                    ? 'bg-orange-600 text-white shadow-md shadow-orange-600/30'
                     : 'text-slate-400 hover:text-white hover:bg-white/[0.04]'
                 }`}
               >
@@ -55,7 +55,7 @@ export default function MarketOverview({ indices, onSelectIndex }) {
             <div
               key={idx.symbol}
               onClick={() => onSelectIndex(idx.symbol)}
-              className="group relative rounded-2xl bg-[#0F1422]/70 hover:bg-[#141B2E]/90 border border-white/[0.06] hover:border-indigo-500/30 p-5 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-950/40 cursor-pointer flex flex-col justify-between"
+              className="group relative rounded-2xl bg-[#0F1422]/70 hover:bg-[#141B2E]/90 border border-white/[0.06] hover:border-orange-500/30 p-5 transition-all duration-300 hover:shadow-xl hover:shadow-orange-950/40 cursor-pointer flex flex-col justify-between"
             >
               {/* Header inside Card */}
               <div>
@@ -118,7 +118,7 @@ export default function MarketOverview({ indices, onSelectIndex }) {
                 </div>
 
                 <div className="text-right">
-                  <span className="text-[11px] text-indigo-400 group-hover:text-cyan-300 font-semibold flex items-center gap-1">
+                  <span className="text-[11px] text-orange-400 group-hover:text-amber-300 font-semibold flex items-center gap-1">
                     Analyze <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </span>
                 </div>

@@ -183,7 +183,7 @@ export default function TradingSection({
                     onClick={() => setCurrentSymbol(s.symbol)}
                     className={`py-2 px-2 rounded-xl text-xs font-bold font-mono transition-all border ${
                       currentSymbol === s.symbol
-                        ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-600/30'
+                        ? 'bg-orange-600 text-white border-orange-500 shadow-md shadow-orange-600/30'
                         : 'bg-white/[0.03] text-slate-400 border-white/[0.06] hover:bg-white/[0.07] hover:text-white'
                     }`}
                   >
@@ -253,7 +253,7 @@ export default function TradingSection({
                       step="any"
                       value={limitPrice}
                       onChange={(e) => setLimitPrice(e.target.value)}
-                      className="w-full pl-8 pr-4 py-2.5 bg-black/40 border border-white/[0.1] rounded-xl text-white font-mono text-sm focus:outline-none focus:border-indigo-500"
+                      className="w-full pl-8 pr-4 py-2.5 bg-black/40 border border-white/[0.1] rounded-xl text-white font-mono text-sm focus:outline-none focus:border-orange-500"
                     />
                   </div>
                 </div>
@@ -275,7 +275,7 @@ export default function TradingSection({
                     placeholder="0.00"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-black/40 border border-white/[0.1] rounded-xl text-white font-mono text-sm focus:outline-none focus:border-indigo-500"
+                    className="w-full px-4 py-2.5 bg-black/40 border border-white/[0.1] rounded-xl text-white font-mono text-sm focus:outline-none focus:border-orange-500"
                     required
                   />
                   <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 font-mono">

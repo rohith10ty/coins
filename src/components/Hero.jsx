@@ -66,7 +66,7 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
   return (
     <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden crypto-grid-pattern">
       {/* Background ambient lighting effects */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-orange-600/15 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute top-1/2 right-1/4 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none"></div>
 
@@ -94,7 +94,7 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
               Invest with Confidence.{' '}
-              <span className="block mt-1 bg-gradient-to-r from-indigo-400 via-cyan-300 to-emerald-400 bg-clip-text text-transparent">
+              <span className="block mt-1 bg-gradient-to-r from-orange-500 via-amber-400 to-cyan-300 bg-clip-text text-transparent">
                 Trade with Ultra Precision.
               </span>
             </h1>
@@ -112,7 +112,7 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
                   e.preventDefault();
                   document.querySelector('#trading')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 via-indigo-600 to-cyan-500 text-white font-bold text-base shadow-xl shadow-indigo-500/25 hover:shadow-cyan-400/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 text-white font-bold text-base shadow-xl shadow-orange-600/25 hover:shadow-orange-500/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Start Trading Now
                 <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -153,7 +153,7 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
           <div className="lg:col-span-5 relative">
             
             {/* Outer Decorative Glow Border */}
-            <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-indigo-500/40 via-cyan-500/20 to-transparent shadow-2xl shadow-indigo-950/60">
+            <div className="relative rounded-2xl p-[1px] bg-gradient-to-b from-orange-600/40 via-amber-500/20 to-transparent shadow-2xl shadow-orange-950/40">
               
               <div className="relative rounded-2xl bg-[#0D121D]/90 backdrop-blur-xl border border-white/[0.06] p-6 overflow-hidden">
                 
@@ -171,7 +171,7 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
                         onClick={() => setActiveTab(key)}
                         className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
                           activeTab === key 
-                            ? 'bg-indigo-600 text-white shadow-sm' 
+                            ? 'bg-orange-600 text-white shadow-sm' 
                             : 'text-slate-400 hover:text-white'
                         }`}
                       >

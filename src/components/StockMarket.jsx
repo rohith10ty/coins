@@ -87,7 +87,7 @@ export default function StockMarket({
                 onClick={() => setViewMode('grid')}
                 className={`p-1.5 rounded-lg transition-all ${
                   viewMode === 'grid' 
-                    ? 'bg-indigo-600 text-white shadow' 
+                    ? 'bg-orange-600 text-white shadow' 
                     : 'text-slate-400 hover:text-white'
                 }`}
                 title="Grid View"
@@ -98,7 +98,7 @@ export default function StockMarket({
                 onClick={() => setViewMode('table')}
                 className={`p-1.5 rounded-lg transition-all ${
                   viewMode === 'table' 
-                    ? 'bg-indigo-600 text-white shadow' 
+                    ? 'bg-orange-600 text-white shadow' 
                     : 'text-slate-400 hover:text-white'
                 }`}
                 title="Table View"
@@ -117,7 +117,7 @@ export default function StockMarket({
               onClick={() => setActiveCategory(cat.value)}
               className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                 activeCategory === cat.value
-                  ? 'bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-500/20'
+                  ? 'bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 text-white shadow-lg shadow-orange-600/20'
                   : 'bg-white/[0.03] text-slate-400 hover:text-white border border-white/[0.06] hover:bg-white/[0.06]'
               }`}
             >
@@ -132,7 +132,7 @@ export default function StockMarket({
             <p className="text-slate-400 text-sm">No stocks or assets found matching "{searchTerm}".</p>
             <button
               onClick={() => { setSearchTerm(''); setActiveCategory('ALL'); }}
-              className="mt-3 px-4 py-1.5 rounded-lg bg-indigo-600/40 text-indigo-300 text-xs font-semibold hover:bg-indigo-600/60 transition-colors"
+              className="mt-3 px-4 py-1.5 rounded-lg bg-orange-600/40 text-orange-300 text-xs font-semibold hover:bg-orange-600/60 transition-colors"
             >
               Reset Filters
             </button>
@@ -149,7 +149,7 @@ export default function StockMarket({
               return (
                 <div
                   key={stock.id}
-                  className="group relative rounded-2xl bg-[#0F1420]/80 hover:bg-[#151D2E] border border-white/[0.06] hover:border-indigo-500/30 p-5 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-950/40 flex flex-col justify-between"
+                  className="group relative rounded-2xl bg-[#0F1420]/80 hover:bg-[#151D2E] border border-white/[0.06] hover:border-orange-500/30 p-5 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-950/40 flex flex-col justify-between"
                 >
                   {/* Top Bar inside Card */}
                   <div>

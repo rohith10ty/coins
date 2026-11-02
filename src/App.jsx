@@ -11,6 +11,7 @@ import MarketNews from './components/MarketNews';
 import WhyChooseUs from './components/WhyChooseUs';
 import Footer from './components/Footer';
 import AuthModal from './components/AuthModal';
+import AuthPage from './components/AuthPage';
 import Toast from './components/Toast';
 
 import { 
@@ -20,8 +21,14 @@ import {
 } from './data/mockData';
 
 export default function App() {
-  // Lenis smooth scroll initialization
+  // Page view state: 'landing' | 'auth'
+  const [currentView, setCurrentView] = useState('landing');
+  const [authMode, setAuthMode] = useState('signup'); // 'login' | 'signup'
+
+  // Lenis smooth scroll initialization (only on landing)
   useEffect(() => {
+    if (currentView !== 'landing') return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -41,7 +48,12 @@ export default function App() {
       cancelAnimationFrame(animationFrameId);
       lenis.destroy();
     };
-  }, []);
+  }, [currentView]);
+
+  // Scroll to top when switching views
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentView]);
 
   // Application State
   const [stocks, setStocks] = useState(INITIAL_STOCKS);
@@ -61,11 +73,17 @@ export default function App() {
   const [selectedTradeSymbol, setSelectedTradeSymbol] = useState('NVDA');
   const [initialOrderSide, setInitialOrderSide] = useState('BUY');
 
-  // Auth modal state
+  // Auth modal fallback state
   const [authModal, setAuthModal] = useState({ isOpen: false, mode: 'login' });
 
   // Toast feedback state
   const [toastMessage, setToastMessage] = useState(null);
+
+  // Open Auth Page
+  const handleOpenAuth = (mode = 'signup') => {
+    setAuthMode(mode);
+    setCurrentView('auth');
+  };
 
   // Toggle watchlist handler
   const handleToggleWatchlist = (symbol) => {
@@ -80,12 +98,17 @@ export default function App() {
 
   // Quick trade navigation handler
   const handleQuickTrade = (symbol, side = 'BUY') => {
+    if (currentView !== 'landing') {
+      setCurrentView('landing');
+    }
     setSelectedTradeSymbol(symbol);
     setInitialOrderSide(side);
-    const tradingSection = document.querySelector('#trading');
-    if (tradingSection) {
-      tradingSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      const tradingSection = document.querySelector('#trading');
+      if (tradingSection) {
+        tradingSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   // Execute Order handler (Real state updates!)
@@ -174,8 +197,26 @@ export default function App() {
     setToastMessage(`Executed ${side} order for ${shares} ${symbol} at $${price.toLocaleString()}!`);
   };
 
+  // If user is on the dedicated Auth Page
+  if (currentView === 'auth') {
+    return (
+      <div className="min-h-screen bg-[#080B11] text-slate-100 selection:bg-orange-500 selection:text-white">
+        <Toast 
+          message={toastMessage} 
+          onClose={() => setToastMessage(null)} 
+        />
+        <AuthPage
+          initialMode={authMode}
+          onBack={() => setCurrentView('landing')}
+          onAuthSuccess={(msg) => setToastMessage(msg)}
+        />
+      </div>
+    );
+  }
+
+  // Main Platform Landing View
   return (
-    <div className="min-h-screen bg-[#080B11] text-slate-100 flex flex-col relative selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-[#080B11] text-slate-100 flex flex-col relative selection:bg-orange-500 selection:text-white">
       {/* Toast Feedback */}
       <Toast 
         message={toastMessage} 
@@ -184,7 +225,7 @@ export default function App() {
 
       {/* Navigation Bar */}
       <Navbar
-        onOpenAuth={(mode) => setAuthModal({ isOpen: true, mode })}
+        onOpenAuth={handleOpenAuth}
       />
 
       {/* Main Content Sections */}
@@ -192,7 +233,7 @@ export default function App() {
         {/* Hero Section */}
         <Hero
           onOpenTrading={(sym, side) => handleQuickTrade(sym, side)}
-          onOpenAuth={(mode) => setAuthModal({ isOpen: true, mode })}
+          onOpenAuth={handleOpenAuth}
           onSelectStock={(sym) => handleQuickTrade(sym, 'BUY')}
         />
 
@@ -245,21 +286,22 @@ export default function App() {
 
         {/* Why Choose Us */}
         <WhyChooseUs
-          onOpenAuth={(mode) => setAuthModal({ isOpen: true, mode })}
+          onOpenAuth={handleOpenAuth}
         />
       </main>
 
       {/* Footer */}
       <Footer
-        onOpenAuth={(mode) => setAuthModal({ isOpen: true, mode })}
+        onOpenAuth={handleOpenAuth}
       />
 
-      {/* Authentication Modal */}
+      {/* Authentication Modal (compact fallback) */}
       <AuthModal
         isOpen={authModal.isOpen}
         initialMode={authModal.mode}
         onClose={() => setAuthModal({ isOpen: false, mode: 'login' })}
         onAuthSuccess={(msg) => setToastMessage(msg)}
+        onOpenFullPage={(mode) => handleOpenAuth(mode)}
       />
     </div>
   );

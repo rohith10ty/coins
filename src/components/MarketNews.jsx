@@ -49,7 +49,7 @@ export default function MarketNews() {
                 onClick={() => setActiveCategory(c)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   activeCategory === c
-                    ? 'bg-indigo-600 text-white shadow-md'
+                    ? 'bg-orange-600 text-white shadow-md shadow-orange-600/30'
                     : 'bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08]'
                 }`}
               >
@@ -64,7 +64,7 @@ export default function MarketNews() {
           {filteredNews.map((news) => (
             <article
               key={news.id}
-              className="group rounded-2xl bg-[#0F1422]/80 hover:bg-[#141B2E] border border-white/[0.06] hover:border-indigo-500/30 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl cursor-pointer"
+              className="group rounded-2xl bg-[#0F1422]/80 hover:bg-[#141B2E] border border-white/[0.06] hover:border-orange-500/30 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl cursor-pointer"
               onClick={() => setSelectedArticle(news)}
             >
               <div>
@@ -105,7 +105,7 @@ export default function MarketNews() {
               </div>
 
               {/* Bottom Card Action */}
-              <div className="px-5 pb-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-xs font-semibold text-indigo-400 group-hover:text-cyan-300 transition-colors">
+              <div className="px-5 pb-5 pt-3 border-t border-white/[0.04] flex items-center justify-between text-xs font-semibold text-orange-400 group-hover:text-amber-300 transition-colors">
                 <span>Read Full Brief</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -139,7 +139,7 @@ export default function MarketNews() {
               </button>
 
               <div className="absolute bottom-4 left-6 right-6">
-                <span className="px-3 py-1 rounded-full bg-indigo-600/80 backdrop-blur-md text-xs font-semibold text-white">
+                <span className="px-3 py-1 rounded-full bg-orange-600/80 backdrop-blur-md text-xs font-semibold text-white">
                   {selectedArticle.category}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-white mt-2 leading-tight">
@@ -177,7 +177,7 @@ export default function MarketNews() {
                 <span className="text-xs text-slate-500">Source: Verified Financial Wire</span>
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition-colors"
+                  className="px-5 py-2 rounded-xl bg-orange-600 hover:bg-orange-500 text-white text-xs font-semibold transition-colors shadow-lg shadow-orange-600/20"
                 >
                   Close Article
                 </button>
