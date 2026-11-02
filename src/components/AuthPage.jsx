@@ -65,12 +65,7 @@ export default function AuthPage({ initialMode = 'signup', onBack, onAuthSuccess
         </button>
 
         {/* Brand */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-orange-600 to-amber-500 p-[1.5px] shadow-lg shadow-orange-600/25">
-            <div className="w-full h-full bg-[#080B11] rounded-[7px] flex items-center justify-center">
-              <CoinsIcon className="w-4 h-4 text-orange-400" />
-            </div>
-          </div>
+        <div className="flex items-center">
           <span className="text-xl font-black text-white tracking-tight">
             Coins<span className="text-orange-500">.</span>
           </span>

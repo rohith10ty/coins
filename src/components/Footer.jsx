@@ -29,12 +29,7 @@ export default function Footer({ onOpenAuth }) {
           
           {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 via-orange-500 to-amber-500 p-[1.5px] shadow-lg shadow-orange-600/25">
-                <div className="w-full h-full bg-[#080B11] rounded-[10px] flex items-center justify-center">
-                  <CoinsIcon className="w-5 h-5 text-orange-400" />
-                </div>
-              </div>
+            <div className="flex items-center">
               <span className="text-2xl font-black text-white tracking-tight">
                 Coins<span className="text-orange-500">.</span>
               </span>

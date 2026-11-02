@@ -57,15 +57,10 @@ export default function Navbar({ onOpenAuth, activeSection, onNavigate }) {
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="flex items-center gap-3 group cursor-pointer"
+            className="flex items-center group cursor-pointer"
           >
-            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-600 via-orange-500 to-amber-500 p-[1.5px] shadow-lg shadow-orange-600/25 group-hover:shadow-orange-500/40 transition-all duration-300">
-              <div className="w-full h-full bg-[#080B11] rounded-[10px] flex items-center justify-center">
-                <CoinsIcon className="w-5 h-5 text-orange-400 group-hover:text-amber-300 transition-colors duration-300 transform group-hover:rotate-12" />
-              </div>
-            </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-amber-200 bg-clip-text text-transparent">
+              <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-amber-200 bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
                 Coins<span className="text-orange-500">.</span>
               </span>
               <span className="text-[10px] uppercase tracking-widest text-slate-400 -mt-1 font-semibold">
