@@ -64,35 +64,20 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
   ];
 
   return (
-    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden crypto-grid-pattern">
+    <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-16 overflow-hidden crypto-grid-pattern">
       {/* Background ambient lighting effects */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-orange-600/15 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute top-1/2 right-1/4 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Column: Headline and Call to Actions */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
-            {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md mb-6 hover:border-cyan-400/40 transition-colors">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
-                Institutional v4.2 Release
-              </span>
-              <span className="text-slate-600">•</span>
-              <span className="text-xs text-cyan-300 font-medium flex items-center gap-0.5">
-                0% Commission Trading <ChevronRight className="w-3.5 h-3.5" />
-              </span>
-            </div>
-
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.15]">
               Invest with Confidence.{' '}
               <span className="block mt-1 bg-gradient-to-r from-orange-500 via-amber-400 to-cyan-300 bg-clip-text text-transparent">
                 Trade with Ultra Precision.
@@ -100,22 +85,22 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
             </h1>
 
             {/* Description */}
-            <p className="mt-6 text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-slate-400 max-w-lg leading-relaxed">
               Experience the pinnacle of fintech on <strong className="text-slate-200">Coins</strong>. Access US equities, global crypto, ETFs, and index derivatives with sub-millisecond execution, institutional liquidity, and intelligent portfolio tools.
             </p>
 
             {/* Call To Actions */}
-            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+            <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               <a
                 href="#trading"
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector('#trading')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="group relative inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 text-white font-bold text-base shadow-xl shadow-orange-600/25 hover:shadow-orange-500/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-orange-600 via-orange-500 to-amber-500 text-white font-bold text-sm shadow-xl shadow-orange-600/25 hover:shadow-orange-500/35 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Start Trading Now
-                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
 
               <a
@@ -124,7 +109,7 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
                   e.preventDefault();
                   document.querySelector('#markets')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.1] text-slate-200 hover:text-white font-semibold text-base transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.1] text-slate-200 hover:text-white font-semibold text-sm transition-all duration-200"
               >
                 <BarChart3 className="w-4 h-4 text-cyan-400" />
                 Explore Markets
@@ -132,18 +117,18 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
             </div>
 
             {/* Key Trust Metrics */}
-            <div className="mt-12 pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-6 sm:gap-10 w-full max-w-lg">
+            <div className="mt-8 pt-6 border-t border-white/[0.08] grid grid-cols-3 gap-6 sm:gap-8 w-full max-w-md">
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">$4.8B+</div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-0.5">24h Global Volume</div>
+                <div className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">$4.8B+</div>
+                <div className="text-[11px] sm:text-xs text-slate-400 mt-0.5">24h Global Volume</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">&lt;12ms</div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-0.5">Engine Latency</div>
+                <div className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">&lt;12ms</div>
+                <div className="text-[11px] sm:text-xs text-slate-400 mt-0.5">Engine Latency</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400 tracking-tight">0.0%</div>
-                <div className="text-xs sm:text-sm text-slate-400 mt-0.5">Zero Commission</div>
+                <div className="text-xl sm:text-2xl font-extrabold text-emerald-400 tracking-tight">0.0%</div>
+                <div className="text-[11px] sm:text-xs text-slate-400 mt-0.5">Zero Commission</div>
               </div>
             </div>
 
@@ -269,12 +254,6 @@ export default function Hero({ onOpenTrading, onOpenAuth, onSelectStock }) {
                 <div className="text-xs font-bold text-white">SOC-2 Type II Certified</div>
                 <div className="text-[11px] text-slate-400">100% Reserve Custody</div>
               </div>
-            </div>
-
-            {/* Floating Speed Badge */}
-            <div className="hidden sm:flex items-center gap-3 absolute -top-4 -right-4 bg-[#0E1524]/95 backdrop-blur-md border border-white/[0.1] px-4 py-2 rounded-xl shadow-2xl">
-              <Zap className="w-4 h-4 text-cyan-400 fill-cyan-400" />
-              <span className="text-xs font-semibold text-slate-200">&lt; 12ms High-Frequency Routing</span>
             </div>
 
           </div>
